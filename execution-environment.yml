@@ -1,0 +1,11 @@
+---
+version: 1
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+additional_build_steps:
+  prepend: |
+    RUN pip3 install --upgrade pip
+    RUN pip3 install --upgrade pyopenssl
+  append: |
+    RUN pip3 install --upgrade ansible-runner
