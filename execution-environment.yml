@@ -4,7 +4,7 @@ dependencies:
   galaxy: requirements.yml
   python: requirements.txt
 build_arg_defaults:
-  EE_BASE_IMAGE: quay.io/ansible/ansible-runner:2.12-latest
+  EE_BASE_IMAGE: quay.io/ansible/ansible-runner:stable
   EE_BUILDER_IMAGE: quay.io/ansible/ansible-builder:1.2.0
 additional_build_steps:
   prepend: |
