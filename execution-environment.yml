@@ -3,9 +3,15 @@ version: 3
 dependencies:
   galaxy: requirements.yml
   python: requirements.txt
+images:
+  base_image:
+    name: quay.io/ansible/ansible-runner:latest
+  builder_image:
+    name: quay.io/ansible/ansible-builder:3.1.1
+
 build_arg_defaults:
-  EE_BASE_IMAGE: quay.io/ansible/ansible-runner:latest
-  EE_BUILDER_IMAGE: quay.io/ansible/ansible-builder:3.0.0
+  ANSIBLE_GALAXY_CLI_COLLECTION_OPTS: "--server https://galaxy.ansible.com/api/"
+
 additional_build_steps:
   prepend_base: |
     RUN pip3 install --upgrade pip
