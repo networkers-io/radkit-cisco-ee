@@ -1,18 +1,11 @@
 ---
-version: 3
+version: 1
 dependencies:
   galaxy: requirements.yml
   python: requirements.txt
-images:
-  base_image:
-    name: quay.io/ansible/ansible-runner:latest
-
-build_arg_defaults:
-  ANSIBLE_GALAXY_CLI_COLLECTION_OPTS: "--server https://galaxy.ansible.com/api/"
-
 additional_build_steps:
-  prepend_base: |
+  prepend: |
     RUN pip3 install --upgrade pip
     RUN pip3 install --upgrade pyopenssl
-  append_base: |
+  append: |
     RUN pip3 install --upgrade ansible-runner
